@@ -1,4 +1,3 @@
-# LC-Fighting
-To solve and note down thinking threads of leetcode problems
-Using Java as prime language
-Fighting!!!
+# LeetCode
+This repository contains the solutions and explanations to the algorithm problems on LeetCode.
+All are written in Java and implemented by myself. 
