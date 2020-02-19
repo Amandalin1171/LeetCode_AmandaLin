@@ -14,9 +14,7 @@ All are written in Java and implemented by myself.
 
 ## Headers: 
 preface the phrase with a hash mark (#), place the same number of hash marks as the size of the header you want  
-eg: 
-* # Header One; 
-* ### Header Three  
+eg: # Header One; ### Header Three  
 Remember: You can't really make a header bold, but you can italicize certain words.  
 
 ## Links: 
