@@ -1,6 +1,7 @@
 # LeetCode
 This repository contains the solutions and explanations to the algorithm problems on LeetCode.  
 All are written in Java and implemented by myself.   
+Only cover Medium and hard problems and some interesting easy ones which need some documentation.
 
 # Markdown Instruction:  
 -这里写markdown有一个网友教程参考：[MarkDown入门参考](http://xianbai.me/learn-md/index.html)  
