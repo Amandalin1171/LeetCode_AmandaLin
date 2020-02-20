@@ -1,5 +1,10 @@
 package LinkedList;
 
+/**
+ * 把一个点连接到它后面的后面的点，直接用cur.next = cur.next.next;就可以啦， 为啥呢？
+ * 因为：这样的话，cur.next就没有任何node指向它了，这个点就永远无法被访问到，就会被回收了
+ * 心疼一秒的同时，节约了我们很多时间。
+ */
 public class RemoveDuplicatesFromSortedList {
   public ListNode deleteDuplicates(ListNode head) {
     ListNode cur = head;
