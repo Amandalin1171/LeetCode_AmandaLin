@@ -6,6 +6,7 @@ Only cover Medium and hard problems and some interesting easy ones which need so
 # Markdown Instruction:  
 -这里写markdown有一个网友教程参考：[MarkDown入门参考](http://xianbai.me/learn-md/index.html)  
 -这里是markdown的一个英文网络教程：[MarkDown tutorial](https://www.markdowntutorial.com/)  
+-这是MS-DOS Commands总结整理：[MS-DOS Commands](https://www.c3scripts.com/tutorials/msdos/commands.html)  
 下面是一些笔记摘要： 
 
 ## Character Pattern:  
