@@ -7,6 +7,11 @@ package LinkedList;
  */
 public class DeleteNodeInALinkedList {
   public void deleteNode(ListNode node) {
+    /**
+     * 在LC237中明确指出：The given node will not be the tail
+     * 所以不需要写corner case： node.next != null
+     * 不然的话，如果指向null,会throw null pointer exception
+     */
     node.val = node.next.val;
     node.next = node.next.next;
   }
