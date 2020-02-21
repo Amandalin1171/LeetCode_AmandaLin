@@ -1,8 +1,24 @@
 package LinkedList;
 
 import java.util.List;
+/**
+ * 题目：
+ * 206. Reverse Linked List
+ *
+ * Reverse a singly linked list.
+ *
+ * Example:
+ *
+ * Input: 1->2->3->4->5->NULL
+ * Output: 5->4->3->2->1->NULL
+ *
+ * Follow up:
+ *
+ * A linked list can be reversed either iteratively or recursively. Could you implement both?
+ */
 
 /**
+ * 笔记：
  * 需要注意的点有：
  * 1. 返回的是new head也就是prev这个点，因为while循环的条件是curr!= null，所以
  * 最后退出的时候是curr= temp是null就不进入循环了，所以此时prev是第一个有地址的node,也就是new head
