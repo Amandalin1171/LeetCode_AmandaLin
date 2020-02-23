@@ -4,3 +4,4 @@
 因为进入循环的时候要求runner这个点本身不能使null，我们还要用到runner.next.next，所以runner.next必须是可以有next语句的必须可以指向下一个点， 所以runner.next不能使null，但是runner.next.next是null是可以的，这样下一次就退出循环了。
 
 ## 算法作业3中快慢指针有详细解释
+已经在附件中上传算法作业3的PDF版本
