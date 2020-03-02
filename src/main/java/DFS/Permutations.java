@@ -40,6 +40,7 @@ public class Permutations {
   }
 
   private void dfsHelper(int[] nums, List<List<Integer>> res, List<Integer> cur) {
+    //排列组合的退出条件是每一层的list的长度与given的array的长度相等，就加到最终的结果中去
     if(cur.size() == nums.length) {
       res.add(new ArrayList<Integer> (cur));
       return;
