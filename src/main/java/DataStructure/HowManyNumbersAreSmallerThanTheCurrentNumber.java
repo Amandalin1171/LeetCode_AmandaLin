@@ -43,6 +43,9 @@ import java.util.Map;
  * ！！！当你将一根数组排序的时候，它的index就是比它小的数字的count！！！
  * 为了节约查询的时间，map中key是排序后数组的element，value是这个element的index
  * 这样查找的时候，根据key拿到value就是小于这个数字的count(一共有多少数小于这个数)
+ *
+ * HashMap的解法因为要求排序，所以时间复杂度是O(nlogn)
+ * 另一种方法是counting sort，时间复杂度是O(k + n)
  */
 public class HowManyNumbersAreSmallerThanTheCurrentNumber {
   //方法1：HashMap记录排序后的element和index(一共有多少数小于这个数)
