@@ -28,7 +28,8 @@ import java.util.Map;
  */
 
 /**
- * 这题是为了StrobogrammaticNumber_II 和 III做铺垫的，这俩题在DFS文件包里
+ * 这题是为了StrobogrammaticNumber_II 和 III做铺垫的，II在DFS里，III也在dataStructure里，
+ * 用到了自己写Comparator或者compareTo() function。
  * 能够get到的是这种翻转180°对称的只有自我对称和69，也就是0， 8， 1 和6+9
  * 一脸姨母笑^^
  * 左右夹击，两边必须是对应的pair就完事了，很简单！快去复习II和III吧！
