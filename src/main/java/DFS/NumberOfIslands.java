@@ -33,6 +33,8 @@ package DFS;
  * Flood fill is an algorithm mainly used to determine a bounded area connected to a given node in a multi-dimensional array.
  * It is a close resemblance to the bucket tool in paint programs.
  *
+ * 另一个用到flood filling的题是SurroundedRegions，快去复习吧！！！
+ *
  * 这题用dfs解决的思路就是直接遇到一个1就开始flood fill,先把这个变成0，再把邻居们都变成0，
  * 如果往外扩展过程中都是0了就证明是孤岛了就count++, 然后不用变回去1，就这样继续for loop
  * 走一圈，把所有1全部都改成0之后看一共能count到几个孤立的岛，就是岛屿的数量。

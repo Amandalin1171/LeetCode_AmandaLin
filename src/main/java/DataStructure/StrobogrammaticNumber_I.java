@@ -33,6 +33,9 @@ import java.util.Map;
  * 能够get到的是这种翻转180°对称的只有自我对称和69，也就是0， 8， 1 和6+9
  * 一脸姨母笑^^
  * 左右夹击，两边必须是对应的pair就完事了，很简单！快去复习II和III吧！
+ *
+ * 这道题因为只是判断Boolean所以可以用map做，不需要同时使用key和value
+ * 在II和III中，用单纯的array去存储这些特殊的pair更方便哦！
  */
 public class StrobogrammaticNumber_I {
   public boolean isStrobogrammatic(String num) {
