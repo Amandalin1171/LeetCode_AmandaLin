@@ -28,3 +28,5 @@ Eulerian path: 332. Reconstruct Itinerary
 943. Find the Shortest Superstring -> 980. Unique Paths III -> 996. Number of Squareful Arrays 
 ## 第十四类：union find / grid + CCs: 
 959. Regions Cut By Slashes
+
+## 来源： https://zxi.mytechroad.com/blog/sp/leetcode-1000-problems-era/
