@@ -18,7 +18,7 @@ import java.util.List;
  *
  * All numbers (including target) will be positive integers.
  * The solution set must not contain duplicate combinations.
- * 这句话的意思是比如有两个1和两个7,【1， 7】这个组合只能出现一次
+ * 这句话的意思是比如有两个1和两个7, [1， 7]这个组合只能出现一次
  *
  * 上面这些附注的题意理解，在面试的时候都要与面试官再三确认！！！
  * Example 1:
