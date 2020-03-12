@@ -26,7 +26,11 @@ public class Permutations_II {
     List<List<Integer>> res = new ArrayList<>();
     if(nums == null || nums.length == 0) return res;
     Arrays.sort(nums); //排序，为啥要排序呢，去看CombinationSum_II！！！
-    boolean[] used = new boolean[nums.length];
+    boolean[] used = new boolean[nums.length]; //这里需要用到boolean array去hold每个元素是否被使用
+    //跟subsets, combinationSum不一样的是，组合，是每一次都要从0开始遍历的
+    //所以需要一个boolean array去hold每一次的结果每一个元素是否被用到，
+    //那俩题是用一个遍历的指针int start，在外层for loop进入dfs循环中的时候，每次开始遍历的地方是new start = i + 1
+    //一定要融会贯通啊！！！
     dfs(nums, res, new ArrayList<Integer>(), used);
     return res;
   }
