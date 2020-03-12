@@ -47,6 +47,19 @@ public class CombinationSum {
     for(int i = start; i < candidates.length; i++) {
       cur.add(candidates[i]);
       dfs(candidates, remain - candidates[i], i, res, cur);
+      //这里也可以写成：
+      //也就是可以每次传进去remain - candidates[i]，这样不改变本层的remain，
+      //往上走的时候不需要remain = remain + candidates[i]
+
+      //但是直接在本层改变，不是作为新一层call dfs function的参数传进去而是本层更改了remain的值的话
+      //在网往上走的时候把remain加回变成原来的值就可以啦！！！
+
+//      cur.add(candidates[i]);
+//      remain = remain - candidates[i];
+//      dfs(candidates, remain, i, res, cur);
+//      remain = remain + candidates[i];
+//      cur.remove(cur.size() - 1);
+
       //这里每次还是用i，因为可以用重复的元素
       cur.remove(cur.size() - 1);
     }
