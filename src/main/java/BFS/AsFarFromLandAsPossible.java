@@ -36,9 +36,12 @@ import java.util.Queue;
 /**
  * 笔记：
  * 思路：
- * We start from all the lands and start exploring the water layer by layer
- * until all the water are explored.
- * How many layers have we explored? That would be the answer to be returned.
+ * Solution: BFS
+ * Put all land cells into a queue as source nodes and BFS for water cells,
+ * the last expanded one will be the farthest.
+ *
+ * Time compleixty: O(n^2)
+ * Space complexity: O(n^2)
  *
  * 思考： 为什么从land(1)开始找而不是从water(0)开始找？
  * 题目要求是：find a water cell such that its distance to the nearest
