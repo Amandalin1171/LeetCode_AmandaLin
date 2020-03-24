@@ -34,6 +34,15 @@ import java.util.Map;
  */
 
 /**
+ * 2020-03-23笔记补充：
+ * 这种题叫做：bijection mapping
+ * 说白了就是两个hashmap互相查，和 Isomorphic Strings 一样，去看看这个题吧2333
+ * 串联复习小公举^^
+ *
+ * 这题第一次做的时候最懵逼的是为啥用equals()
+ * 其实还是没理解题意，因为string list里面不同位置长得一样的String地址肯定不一样呀 MDZZ
+ * 所以就是为了看是否存在长得一样的key，而不是地址一样的key，才要用equals()
+ *
  * 笔记：
  * 1. 首先，记住，map的key是唯一的，value是不唯一的。
  * 1.1. 放进相同的key不同的value会覆盖上衣次放进去的pair
