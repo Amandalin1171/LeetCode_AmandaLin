@@ -51,7 +51,7 @@ public class Permutations_II {
       //when a number has the same value with its previous,
       //we can use this number only if his previous is used
       //低端人口的理解：当有重复的数字的时候，我定义他们在结果中的排序，就是index小的必须出现在前面
-      //再由于我们已经排好序了，所以相等的元素一定连在一起，这句话就定义了我后面的数字如果跟前面的数字相等，前面的数字必须被用国内。
+      //再由于我们已经排好序了，所以相等的元素一定连在一起，这句话就定义了我后面的数字如果跟前面的数字相等，前面的数字必须被用过。
       //其实就是数值相同的元素，我们定义了在答案中出现的顺序永远是fix的，是index小的在前面，这样就不会出现他们数值相同，但是index前后混乱导致不同的答案。
       //eg：就会避免 2 1(index:0) 1(index :1) 和 2 1(index:1) 1(index :0)这两种结果同时出现了
       //因为我们定义index小的0的1必须出现在前面，所以我们只会得到  2 1(index:0) 1(index :1)这一个结果！！！

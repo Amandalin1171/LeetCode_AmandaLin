@@ -10,4 +10,8 @@ public class Node {
     val = val;
     neighbors = new ArrayList<>();
   }
+
+  public Node(int val) {
+    val = val;
+  }
 }
