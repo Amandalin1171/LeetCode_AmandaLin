@@ -35,8 +35,8 @@ import java.util.Map;
 
 /**
  * 2020-03-23笔记补充：
- * 这种题叫做：bijection mapping
- * 说白了就是两个hashmap互相查，和 Isomorphic Strings 一样，去看看这个题吧2333
+ * 这种题叫做：Bijection mapping 双射查找 emmmm这个名字...
+ * 说白了就是两个hashmap互相查，和 Isomorphic(同构) Strings 一样，去看看这个题吧2333
  * 串联复习小公举^^
  *
  * 这题第一次做的时候最懵逼的是为啥用equals()
@@ -55,7 +55,14 @@ import java.util.Map;
  * 当你比较第三位的cat跟第一次put进去的a对应的cat的时候，他们在原始的strs里面的位置是不一样的！
  * 所以reference不一样，只是比较内容也就是长相是否一样的话要用equals()
  */
+
+/**
+ * 2020-03-23更新双射Mapping代码见方法2
+ * 利用到了Map的语法：
+ * getOrDefault(Object key, V defaultValue)
+ */
 public class WordPattern {
+  //方法1：自己写的没有什么美感的解法
   public boolean wordPattern(String pattern, String str) {
     char[] patterns = pattern.toCharArray();
     String[] strs = str.trim().split(" ");
@@ -70,6 +77,56 @@ public class WordPattern {
       }
       else if(!wordMap.get(patterns[i]).equals(strs[i])) {
         return false;
+      }
+    }
+    return true;
+  }
+
+  //方法2： 俩字： 妙啊~~~
+  public boolean wordPattern2(String pattern, String str) {
+    char[] c = pattern.toCharArray();
+    String[] s = str.trim().split(" ");
+    if(c.length != s.length) return false;
+    int n = c.length;
+    //两个map同时查找看index是否相同
+    Map<Character, Integer> cMap = new HashMap<>();
+    Map<String, Integer> sMap = new HashMap<>();
+
+    for(int i = 0; i < n; i++) {
+      int idx_c = cMap.getOrDefault(c[i], -1);
+      int idx_s = sMap.getOrDefault(s[i], -1);
+
+      if(idx_c != idx_s) return false;
+
+      cMap.put(c[i], i);
+      sMap.put(s[i], i);
+    }
+    return true;
+  }
+
+  //方法3：这个才是双射mapping法：
+  //如果你中没我，我中没你，互相加入在一起；
+  //如果有了的话，四种情况是不对劲的
+  //两类：1. 不该有的key； 2. 对不上的value
+  public boolean wordPattern3(String pattern, String str) {
+    Map<String, String> p2s = new HashMap<>();
+    Map<String, String> s2p = new HashMap<>();
+
+    String[] ss = str.split(" ");
+    if(ss.length != pattern.length()) return false;
+
+    for(int i = 0; i < ss.length; i++) {
+      String pat = "" + pattern.charAt(i);
+      String word = ss[i];
+
+      if(!p2s.containsKey(pat) && !s2p.containsKey(word)) {
+        p2s.put(pat, word);
+        s2p.put(word, pat);
+      } else {
+        if(p2s.containsKey(word)) return false;
+        if(s2p.containsKey(pat)) return false;
+        if(!p2s.get(pat).equals(word)) return false;
+        if(!s2p.get(word).equals(pat)) return false;
       }
     }
     return true;
