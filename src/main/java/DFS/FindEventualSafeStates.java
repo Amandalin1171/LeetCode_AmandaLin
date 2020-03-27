@@ -11,7 +11,7 @@ import java.util.List;
  * walk along a directed edge of the graph.
  * If we reach a node that is terminal (that is, it has no outgoing directed edges), we stop.
  * Now, say our starting node is eventually safe if and only if
- * we must eventually walk to a terminal node.  More specifically,
+ * we must eventually walk to a terminal node. More specifically,
  * there exists a natural number K so that for any choice of where to walk,
  * we must have stopped at a terminal node in less than K steps.
  * Which nodes are eventually safe?  Return them as an array in sorted order.
