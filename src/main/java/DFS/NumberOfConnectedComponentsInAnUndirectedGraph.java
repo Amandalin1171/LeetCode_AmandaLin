@@ -28,6 +28,12 @@ import java.util.Set;
  * 这种题有两个解法，一种是connected components, 一种是union find
  * 非unionfind的解法就是for loop一遍所有元素的时候每一个开dfs
  * dfs每个元素的neighbors
+ *
+ * union find 就很直接了，注意面试的时候不要说 easy, straighforward这些词汇
+ * 就是把 int[] edge : edges里面的元素两两union,然后for loop一遍看有几个parents.
+ * 我们做了根据rank union，所以可以用set放一遍，返回set.size()
+ * 也可以看parents[i] == i的有几个
+ * 十分简单，就不写了，union find有很多复杂的题，看union find的文件夹
  */
 public class NumberOfConnectedComponentsInAnUndirectedGraph {
   public int countComponents(int n, int[][] edges) {
