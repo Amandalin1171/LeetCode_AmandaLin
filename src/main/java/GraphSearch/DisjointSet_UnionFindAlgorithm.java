@@ -37,5 +37,41 @@ package GraphSearch;
         ranks[rootX]++
  */
 public class DisjointSet_UnionFindAlgorithm {
+  class UnionFind{
+    private int[] parents;
+    private int[] ranks;
 
+    public UnionFind(int x) {
+      parents = new int[x];
+      ranks = new int[x];
+      for(int i = 0; i < x; i++) {
+        parents[i] = i;
+      }
+    }
+
+    public int find(int child) {
+      if(child != parents[child]) {
+        //Optimization 1 : this recursion: path compression
+        parents[child] = find(parents[child]);
+        return parents[child];
+      }
+      return child;
+    }
+
+
+    //根据题意，union一般返回boolean或者void, 返回boolean的话，false表示不是后来union的本来就是一组的
+    //Optimization 2 : using rank: union by rank: merge low rank tree to high rank one
+    public boolean union(int x, int y) {
+      int px = find(x);
+      int py = find(y);
+      if(px == py) return false;
+      else if(ranks[px] > ranks[py]) parents[py] = px;
+      else if(ranks[px] < ranks[py]) parents[px] = py;
+      else {
+        parents[px] = py;
+        ranks[py]++;
+      }
+      return true;
+    }
+  }
 }

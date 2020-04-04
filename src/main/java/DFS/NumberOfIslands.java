@@ -75,4 +75,85 @@ public class NumberOfIslands {
     int res = testClass.numIslands(grid);
     System.out.println(res);
   }
+
+  /**
+   * 这道题 Union Find 的解法见下：
+   *
+   * Union Find的解法主要是为了NumberOfIslandsII做准备，找岛二只能用unionfind解
+   * 注意二位数组坐标一维化的时候：
+   * x : m
+   * y : n
+   * 坐标 k = x * n + y
+   * 注意是乘以n 不是乘以m ！！！！！
+   *
+   * class Solution {
+   *     class UnionFind{
+   *         private int count;
+   *         private int[] parents;
+   *         private int[] rank;
+   *
+   *         public UnionFind(char[][] grid){
+   *             count = 0;
+   *             int m = grid.length;
+   *             int n = grid[0].length;
+   *             parents = new int[m * n];
+   *             rank = new int[m * n];
+   *
+   *             for(int i = 0; i < m; i++) {
+   *                 for(int j = 0; j < n; j++) {
+   *                     if(grid[i][j] == '1') {
+   *                         parents[i * n + j] = i * n + j; 看看这里 二维坐标一维化别再出错啦！
+   *                         count++;
+   *                     }
+   *                 }
+   *             }
+   *         }
+   *
+   *         public int find(int child) {
+   *             if(parents[child] != child) {
+   *                 parents[child] = find(parents[child]);
+   *                 return parents[child];
+   *             }
+   *             return child;
+   *         }
+   *
+   *         public void union(int x, int y) {
+   *             int px = find(x);
+   *             int py = find(y);
+   *             if(px != py) {
+   *                 if(rank[px] > rank[py]) parents[py] = px;
+   *                 else if(rank[px] < rank[py]) parents[px] = py;
+   *                 else {
+   *                     parents[px] = py;
+   *                     rank[py]++;
+   *                 }
+   *                 count--;
+   *             }
+   *         }
+   *
+   *         public int getCount() {
+   *             return count;
+   *         }
+   *     }
+   *     public int numIslands(char[][] grid) {
+   *         if(grid == null || grid.length == 0) return 0;
+   *         int m = grid.length;
+   *         int n = grid[0].length;
+   *         int res = 0;
+   *         UnionFind uf = new UnionFind(grid);
+   *         for(int i = 0; i < m; i++) {
+   *             for(int j = 0; j < n; j++) {
+   *                 if(grid[i][j] == '1') {
+   *                     grid[i][j] = '0';
+   *                     if(i - 1 > 0 && grid[i - 1][j] == '1') uf.union(i * n + j, (i - 1) * n + j);
+   *                     if(i + 1 < m && grid[i + 1][j] == '1') uf.union(i * n + j, (i + 1) * n + j);
+   *                     if(j - 1 > 0 && grid[i][j - 1] == '1') uf.union(i * n + j, i * n + j - 1);
+   *                     if(j + 1 < n && grid[i][j + 1] == '1') uf.union(i * n + j, i * n + j + 1);
+   *                     }
+   *             }
+   *         }
+   *         return uf.getCount();
+   *     }
+   * }
+   */
 }
