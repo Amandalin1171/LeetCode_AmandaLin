@@ -1,8 +1,10 @@
-package GraphSearch;
+package UnionFind;
 
 /**
  * Union Find/ Disjoint Set
  * 笔记：
+ * 解决 判断两个点是否处在同一个group, group之间要merge 的问题
+ * 最大的问题：只能合并，不能拆分
  * find(x) 找到x的root是谁，find the root/cluster-id of x
  * union(x, y) merge two clusters(cluster 簇）
  *
@@ -10,10 +12,11 @@ package GraphSearch;
  *
  * without optimization: find: O(n)
  * 2 key optimizations:
- * 1). path compression: make tree flat， happen during find
+ * 1). path compression: make tree flat， happen during find: 趋近于O(1)
  * 在find的过程中触发，比如find(5), 我们把5及5上面的点都指向根节点，就相当于纵向变成一对多的横向，不用traverse
  * 一趟线下来。
- * 2). union by rank: merge low rank tree to high rank one
+ * 2). union by rank: merge low rank tree to high rank one: 趋近于O(1)
+ * 把小组合并到大的组中
  * rank可以理解成混乱度或者平均长度
  * 把高度低的树 merge 到高度高的树上，这样可以减少path compression的次数
  *
