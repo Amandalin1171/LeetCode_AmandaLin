@@ -33,46 +33,48 @@ import java.util.Set;
  * Please design an efficient algorithm for this.
  */
 public class BasketballPlayerRanking {
-  public char[] rankPlayers(char[][] records) {
-    //each char[] in records will have length of 3
-    int[] indegree = new int[256];
-    Map<Character, Set<Character>> graph = new HashMap<>();
+  public int[] rankPlayers(int[][] records) {
+    //each int[] in records will have length of 3
+    Map<Integer, Integer> indegree = new HashMap<>();//key: player ID, value: indegree of this ID
+    Map<Integer, Set<Integer>> graph = new HashMap<>();
     buildGraph(records, indegree, graph);
     return bfs(indegree, graph);
   }
 
-  private void buildGraph(char[][] records, int[] indegree, Map<Character, Set<Character>> graph) {
+  private void buildGraph(int[][] records, Map<Integer, Integer> indegree, Map<Integer, Set<Integer>> graph) {
 
-    for(char[] record : records) {
-      char player1 = record[0];
-      char player2 = record[1];
+    for(int[] record : records) {
+      int player1 = record[0];
+      int player2 = record[1];
       graph.putIfAbsent(player1, new HashSet<>());
       graph.putIfAbsent(player2, new HashSet<>());
+      indegree.putIfAbsent(player1, 0);
+      indegree.putIfAbsent(player2, 0);
       if(record[2] == player1) {
         graph.get(player1).add(player2);
-        indegree[player2 - 'A']++;
+        indegree.put(player2, indegree.getOrDefault(player2, 0) + 1);
       } else {
         graph.get(player2).add(player1);
-        indegree[player1 - 'A']++;
+        indegree.put(player1, indegree.getOrDefault(player1, 0) + 1);
       }
     }
   }
 
-  private char[] bfs(int[] indegree, Map<Character, Set<Character>> graph) {
-    List<Character> res = new ArrayList<>();
-    Queue<Character> queue = new LinkedList<>();
-    for(char out : graph.keySet()) {
-      if(indegree[out - 'A'] == 0) {
+  private int[] bfs(Map<Integer, Integer> indegree, Map<Integer, Set<Integer>> graph) {
+    List<Integer> res = new ArrayList<>();
+    Queue<Integer> queue = new LinkedList<>();
+    for(int out : graph.keySet()) {
+      //System.out.println(out);
+      if(indegree.get(out) == 0) {
         queue.offer(out);
         res.add(out);
       }
     }
     while(!queue.isEmpty()) {
-      char out = queue.poll();
-      System.out.println(out);
-      for(Character in : graph.get(out)) {
-        indegree[in - 'A']--;
-        if(indegree[in - 'A'] == 0) {
+      int out = queue.poll();
+      for(int in : graph.get(out)) {
+        indegree.put(in, indegree.get(in) - 1);
+        if(indegree.get(in) == 0) {
           queue.offer(in);
           res.add(in);
         }
@@ -80,7 +82,7 @@ public class BasketballPlayerRanking {
     }
 
     if(res.size() == graph.size()) {
-      char[] finalRes = new char[res.size()];
+      int[] finalRes = new int[res.size()];
       for(int i = 0; i < res.size(); i++) {
         finalRes[i] = res.get(i);
       }
@@ -93,9 +95,14 @@ public class BasketballPlayerRanking {
   //Test Case
   public static void main(String[] args) {
     BasketballPlayerRanking test = new BasketballPlayerRanking();
-    char[][] records1 = {{'A', 'B', 'A'}, {'B', 'C', 'B'}, {'A', 'C', 'A'}};
-    char[][] records2 = {{'A', 'B', 'A'}, {'B', 'C', 'B'}, {'A', 'C', 'C'}};
-    System.out.println(test.rankPlayers(records1));
-    System.out.println(test.rankPlayers(records2));
+    int[][] records1 = {{1, 2, 1}, {2, 3, 2}, {1, 3, 1}};
+    int[][] records2 = {{1, 2, 1}, {2, 3, 2}, {1, 3, 3}};
+    int[] res1 = test.rankPlayers(records1);
+    int[] res2 = test.rankPlayers(records2);
+    for(int i = 0; i < res1.length; i++) {
+      System.out.println(res1[i]);
+    }
+
+    System.out.println(res2);
   }
 }
