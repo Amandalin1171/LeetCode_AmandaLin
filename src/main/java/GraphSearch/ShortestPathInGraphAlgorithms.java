@@ -6,6 +6,7 @@ package GraphSearch;
  * 有三大算法：
  * 这三大算法都不允许 negative cycles
  * 1. Dijkstra's Algorithms 走全图最短距离，不允许负数边
+ * greedy思想
  * Shortest path from one node to all nodes.
  * 2. Bellman - Ford 走全图最短距离，允许负数边
  * Shortest path from one node to all nodes, negative edges allowed.
