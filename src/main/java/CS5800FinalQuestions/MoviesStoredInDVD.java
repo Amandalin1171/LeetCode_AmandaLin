@@ -1,6 +1,7 @@
-package DynamicProgramming;
+package CS5800FinalQuestions;
 
 /**
+ * Problem 3
  * You want to make your friend a birthday present, a DVD with a collection of your favorite movies.
  * You have way too many movies (say n movies in total).
  * For each movie you know how much space it takes. For example, movie 1 takes 2GB of capacity.

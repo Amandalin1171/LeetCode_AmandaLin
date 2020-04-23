@@ -1,11 +1,11 @@
-package DynamicProgramming;
+package CS5800FinalQuestions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.PriorityQueue;
 
 /**
+ * Problem 5
  * Some people think that the bigger an elephant is, the smarter it is.
  * To disprove this, you want to take the data on a collection of elephants and
  * put as large a subset of this data as possible into a sequence so that the weights are increasing,
@@ -85,19 +85,13 @@ public class DisproveElephantRumor {
       }
     }
 
-    //System.out.println("LIS of given input");
-
     List<int[]> res = new ArrayList<>();
     for (int i = tailIndices[len - 1]; i >= 0; i = prevIndices[i]) {
       int[] cur = new int[2];
       cur[0] = arr[i].weight;
       cur[1] = arr[i].iq;
       res.add(cur);
-      //System.out.print(arr[i].iq + " ");
     }
-
-    //System.out.println();
-
     return res;
   }
 

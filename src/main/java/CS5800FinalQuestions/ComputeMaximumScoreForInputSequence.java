@@ -1,6 +1,7 @@
-package DynamicProgramming;
+package CS5800FinalQuestions;
 
 /**
+ * Problem 1
  * You are playing the following game. At the beginning of the game, you are given a sequence of n digitis (where n\ >1). And you need to divide this sequence into groups of digits, each group may consist of 2, 3, or 4 consecutive digits. For example, if you are given 123456, you can group it like (123)(456), or (12)(3456), etc. For each group you will get a score, where the score is the number of 1’s in its binary representation.
  *
  * In the example with input 123456, if you group the digits (123)(456), then
