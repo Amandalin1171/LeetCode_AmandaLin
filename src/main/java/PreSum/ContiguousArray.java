@@ -38,6 +38,10 @@ public class ContiguousArray {
     map.put(0, -1); // fake starting point
     /**
      * 对这个initialization的解释：
+     * 保持preSum的consistency：
+     * 0号位的element的preSum是自己+前面的preSum, 为了保持一致的逻辑，前面要塞进去一个凑数的，
+     * 就是塞个0，这样0号位的数字= 自己+ 0(前面凑数的）
+     * 然后凑数的index在0之前嘛，就是-1
      * for the arr [-1,1], when entering the loop, when i=1, sum=-1+1=0.
      * the length is i-(-1) -> 1-(-1) = 2. so put(0,-1) is needed.
      *
