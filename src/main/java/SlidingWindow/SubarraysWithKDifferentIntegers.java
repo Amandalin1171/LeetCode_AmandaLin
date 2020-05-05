@@ -102,6 +102,7 @@ public class SubarraysWithKDifferentIntegers {
         if(freqMap2.get(A[l]) == 0) {
           K++;
         }
+        l++;
       }
       res = res + r - l + 1;
     }
