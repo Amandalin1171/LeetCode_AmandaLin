@@ -1,4 +1,4 @@
-package DataStructure;
+package DataStructure.Stack;
 
 /**
  * 739. Daily Temperatures

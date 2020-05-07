@@ -23,6 +23,12 @@ package GraphSearch;
  *              But it is larger in lexical order.
  */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+
 /**
  * 笔记：
  * 又是被图论知识塞得满满的一天：
@@ -58,6 +64,45 @@ package GraphSearch;
  * Fleury是一种有效的算法。
  * 这里待更新
  */
-public class Reconstruct_Itinerary {
 
+/**
+ * 这题有量个tricky的地方：
+ * 1. smallest lexical order
+ * 构建graph map的时候value用priority queue不是单纯的list，就解决，自动根据String的字母顺序
+ *
+ * 2. dfs打印出来是倒序
+ * 我自己的想法是先打印出来然后在O(n)倒着塞进结果中
+ * 还有一种在dfs中就直接解决的是，res用linkedlist不是普通的list每次addFirst()
+ */
+public class Reconstruct_Itinerary {
+  //欧拉通路
+  public Map<String, PriorityQueue<String>> neighbors = new HashMap<>();
+  public List<String> res = new ArrayList<>();
+  public List<String> reverse = new ArrayList<>(); //dfs打印出来是倒着的
+  public List<String> findItinerary(List<List<String>> tickets) {
+    //corner case
+    if(tickets == null || tickets.size() == 0) return res;
+
+    //build graph
+    for(List<String> curr : tickets) {
+      neighbors.putIfAbsent(curr.get(0), new PriorityQueue<>());
+      neighbors.get(curr.get(0)).offer(curr.get(1));
+    }
+
+    //res.add("JFK");
+    dfs("JFK");
+    //从倒序中走一遍填到正确顺序的结果中
+    for(int i = reverse.size() - 1; i >= 0; i--) {
+      res.add(reverse.get(i));
+    }
+    return res;
+  }
+
+  private void dfs(String departure) {
+    PriorityQueue<String> arrivals = neighbors.get(departure);
+    while(arrivals != null && !arrivals.isEmpty()) {
+      dfs(arrivals.poll());
+    }
+    reverse.add(departure);
+  }
 }
