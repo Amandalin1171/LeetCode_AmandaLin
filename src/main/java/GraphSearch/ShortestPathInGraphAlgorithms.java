@@ -32,6 +32,21 @@ import java.util.PriorityQueue;
  *
  * 3. Floyd - Warshall [DP] 求每两点之间的最短距离,允许负数边
  * Shortest path between all pairs of vertices, negative edges allowed.
+ * 想看看Floyd -Warshall的例题，看 399. Evaluate Division(这题可以dfs, bfs, union find, FW)
+ * 最短路径，还是要解决所有pair，还是允许负数
+ *
+ * Pseudocode:
+ *
+ * let V = numbers of vertices in graph
+ * let dist = V * V array of minimum distances initialized to 无穷大
+ * for each vertex v: dist[v][v] = 0: 自己到自己的最短距离为0
+ * for each edge(u, v): dist[u][v] = weight(u, v)
+ *
+ * for k from 1 to V
+ *   for i from 1 to V
+ *     for j from 1 to V
+ *       if dist[i][j] > dist[i][k] + dist[k][j] : dist[i][j] = dist[i][k] + dist[k][j]
+ *       end if
  */
 public class ShortestPathInGraphAlgorithms {
 

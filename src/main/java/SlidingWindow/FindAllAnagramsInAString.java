@@ -48,6 +48,7 @@ package SlidingWindow;
  *
  * 3. array used as map
  * 由于是character规定了都是小写字母所以可以用array[26]来做，没规定大小写可以array[256]里面直接塞char
+ * 有一题跟这个几乎一模一样： 567. Permutation in String
  */
 
 import java.util.ArrayList;
@@ -132,6 +133,7 @@ public class FindAllAnagramsInAString {
   }
 
   //方法三：最好的方法！！！
+  //有一个题跟这个很像： 567. Permutation in String
   public List<Integer> findAnagrams_array(String s, String p) {
     List<Integer> res = new ArrayList<>();
     int[] dictionary = new int[26];
