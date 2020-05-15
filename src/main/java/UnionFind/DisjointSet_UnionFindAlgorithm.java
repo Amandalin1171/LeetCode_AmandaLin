@@ -28,10 +28,10 @@ package UnionFind;
 
     func find(x):
       if x != parents[x]:
-        parents[x] = find(parents[i]) 这一步就是path compression
+        parents[x] = find(parents[i]) 优化1： path compression
       return parents[x]
 
-    func union(x, y):
+    func union(x, y): 优化2： union by rank
       rootX, rootY = find(x), find(y)
       if ranks[rootX] > ranks[rootY] : parents[rootY] = rootX
       if ranks[rootX] < ranks[rootY] : parents[rootX] = rootY
