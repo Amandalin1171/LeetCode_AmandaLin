@@ -34,6 +34,8 @@ package UnionFind;
  *        如果是这么理解的话就是先traverse边缘，以此flood fill，把边缘和它的邻居们的O变成另一个字母比如A，
  *        然后traverse整个矩阵，把剩下的O，也就是此刻所有的O都改成X，把遇到的奇葩字母A改回O
  */
+
+//方法1： Union Find
 public class SurroundedRegions {
 
   int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; //directions
@@ -124,5 +126,55 @@ public class SurroundedRegions {
         }
       }
     }
+  }
+
+  //方法2：flood fill
+  //只有边缘的O不能被改，其余的都要改成X。
+  //一坨O，里面有一个在边缘，这一坨就不能被改成X。
+  //如果是这么理解的话就是先traverse边缘，以此flood fill，把边缘和它的邻居们的O变成另一个字母比如A，
+  //然后traverse整个矩阵，把剩下的O，也就是此刻所有的O都改成X，把遇到的奇葩字母A改回O
+  public void solve2(char[][] board) {
+    if(board == null || board.length == 0) return;
+    int rows = board.length;
+    int cols = board[0].length;
+
+    for(int i = 0; i < rows; i++) {
+      if(board[i][0] == 'O') dfs(board, i, 0);
+      if(board[i][cols - 1] == 'O') dfs(board, i, cols - 1);
+    }
+
+    for(int i = 0; i < cols; i++) {
+      if(board[0][i] == 'O') dfs(board, 0, i);
+      if(board[rows - 1][i] == 'O') dfs(board, rows - 1, i);
+    }
+
+    for(int i = 0; i < rows; i++) {
+      for(int j = 0; j < cols; j++) {
+        System.out.print(board[i][j]);
+      }
+      System.out.println();
+    }
+
+
+    for(int i = 0; i < rows; i++) {
+      for(int j = 0; j < cols; j++) {
+        if(board[i][j] == 'O') board[i][j] = 'X';
+        else if(board[i][j] == 'A') board[i][j] = 'O';
+      }
+    }
+  }
+
+  private void dfs(char[][] board, int row, int col) {
+
+    if((row < 0 || row >= board.length) || (col < 0 || col >= board[0].length)) return;
+
+    if(board[row][col] != 'O') return;
+
+    board[row][col] = 'A';
+
+    if(row + 2 < board.length && board[row + 1][col] == 'O') dfs(board, row + 1, col);
+    if(row - 2 >= 0 && board[row - 1][col] == 'O') dfs(board, row - 1, col);
+    if(col + 2 < board[0].length && board[row][col + 1] == 'O') dfs(board, row, col + 1);
+    if(col - 2 >= 0 && board[row][col - 1] == 'O') dfs(board, row, col - 1);
   }
 }
