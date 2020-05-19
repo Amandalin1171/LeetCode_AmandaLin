@@ -12,5 +12,5 @@
 391. Perfect Rectangle  
 850. Rectangle Area II  
 1229. Meeting Scheduler  
-1272. Remove Interval  if else 逻辑写到晕_(¦3」∠)_ coding能力的好题！
+1272. Remove Interval：  if else 逻辑写到晕_(¦3」∠)_ coding能力的好题！
 1288. Remove Covered Intervals  
