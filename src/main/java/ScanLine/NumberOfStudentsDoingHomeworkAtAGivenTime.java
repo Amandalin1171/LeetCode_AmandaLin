@@ -2,11 +2,6 @@ package ScanLine;
 
 /**
  * 1450. Number of Students Doing Homework at a Given Time
- * User Accepted:7085
- * User Tried:7163
- * Total Accepted:7202
- * Total Submissions:8340
- * Difficulty:Easy
  * Given two integer arrays startTime and endTime and given an integer queryTime.
  *
  * The ith student started doing their homework at the time startTime[i] and finished it at time endTime[i].

@@ -39,5 +39,16 @@ public class Notes {
  *
  * All Known Implementing Classes:
  * ArrayDeque, ConcurrentLinkedDeque, LinkedBlockingDeque, LinkedList
+ *
+ * 5. TreeMap用法
+ * https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html
+ * 在 729. My Calendar I 会用到： 很好用
+ * 【注意】这俩个method返回值是个KEY 是Integer，wrapping object不是int
+ * eg: Integer preStart = calendar.floorKey(start); 是Integer，不是int
+ * floorKey(K key)
+ * Returns the greatest key less than or equal to the given key, or null if there is no such key.
+ *
+ * ceilingKey(K key)
+ * Returns the least key greater than or equal to the given key, or null if there is no such key.
  */
 }
