@@ -7,7 +7,16 @@ public class Notes {
  * 1. Stringbuilder().reverse() 倒序进行appendx， 我在用string进行加减法的时候用到了
  *
  * 2. TreeSet() 类似于hashmap -> treemap： key是sorted
+ * https://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html
  * 去重的同时将里面的elements进行排序
+ * 里面类似于6.TreeMap的两个function:
+ * 821. Shortest Distance to a Character这道题用这个很好做，但是还要掌握扫两边的方法
+ *
+ * ceiling(E e)
+ * Returns the least element in this set greater than or equal to the given element, or null if there is no such element.
+ *
+ * floor(E e)
+ * Returns the greatest element in this set less than or equal to the given element, or null if there is no such element.
  *
  * 3. Comparator 逻辑：
  *
@@ -40,7 +49,7 @@ public class Notes {
  * All Known Implementing Classes:
  * ArrayDeque, ConcurrentLinkedDeque, LinkedBlockingDeque, LinkedList
  *
- * 5. TreeMap用法
+ * 6. TreeMap用法
  * https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html
  * 在 729. My Calendar I 会用到： 很好用
  * 【注意】这俩个method返回值是个KEY 是Integer，wrapping object不是int

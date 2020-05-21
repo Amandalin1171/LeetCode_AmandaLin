@@ -20,18 +20,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
+ * 方法1： 凡间思维：排序 + 写结果
  * 自己写代码遇到的困难和坑：
  * 0.最最重要的一点：指针，obj pass by reference。 int pass by value
  * 具体看55行注释
+ *
  * 1. 之前code不work是因为要一直合并直到遇到一个不需要合并的区间才可以安全写入结果，
  * 不然合并一个就写入结果的话，这个可能与下一个interval继续合并，就会重复写这段。
  *
  * 2. 提出pre然后for loop要从0开始，而不是1开始，因为这样会在攒pre和curr的时候丢掉最后一截
  * 自己跟自己先比一次也没什么不好，为了保证连续性。
+ *
+ * 方法2： open close思想
+ * 运用到TreeMap, 详见Scanline NOTE page
  */
 public class MergeIntervals {
+  //方法1：
   public int[][] merge(int[][] intervals) {
     //corner case
     if(intervals == null || intervals.length <= 1) return intervals;
@@ -63,5 +71,29 @@ public class MergeIntervals {
       }
     }
     return res.toArray(new int[res.size()][2]); //arraylist 转int[][]的写法：需要define array的length
+  }
+
+  //方法2：
+  public int[][] merge2(int[][] intervals) {
+    Map<Integer, Integer> map = new TreeMap<>();
+    //put all start/end time to map, and mark happen time
+    for(int[] interval : intervals) {
+      int start = interval[0];
+      int end = interval[1];
+      map.put(start, map.getOrDefault(start, 0) + 1);
+      map.put(end, map.getOrDefault(end, 0) - 1);
+    }
+    List<int[]> res = new ArrayList<>();
+    int count = 0;
+    int newStart = 0;
+    for(Map.Entry<Integer, Integer> e : map.entrySet()) {
+      if(count == 0) { //means all open have matched close, no ongoing interval remains
+        newStart = e.getKey();
+      }
+      if(count + e.getValue() == 0) {
+        res.add(new int[] {newStart, e.getKey()});
+      }
+    }
+    return res.toArray(new int[res.size()][2]);
   }
 }
