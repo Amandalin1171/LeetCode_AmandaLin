@@ -59,5 +59,8 @@ public class Notes {
  *
  * ceilingKey(K key)
  * Returns the least key greater than or equal to the given key, or null if there is no such key.
+ *
+ * 7. Set 批量加东西：
+ *  Set.addAll(Arrays.asList('a', 'e', 'i', 'o', 'u'));
  */
 }

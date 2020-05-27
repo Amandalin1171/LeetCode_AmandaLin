@@ -13,6 +13,7 @@ import java.util.PriorityQueue;
  * 这三大算法都不允许 negative cycles
  *
  * 1. Dijkstra's Algorithms 走全图最短距离，不允许负数边
+ * 举例： 787. Cheapest Flights Within K Stops
  * 实际上这是一个贪心算法：greedy思想
  * 为啥贪心呢？因为每一步我们都选择vertex with the smallest known distance from the start node
  * optimize local choice

@@ -46,6 +46,12 @@ import java.util.Queue;
 
 /**
  * 笔记：
+ * 2020-5-24更新：
+ * 理解：
+ * BFS关键的就是取出当前层的queue的长度，只遍历这个长度，在遍历过程中，对符合条件的邻居们offer进queue里面
+ * 但是由于当前层你只遍历当前的size，新加入的成员只能在下一层for loop中遍历到
+ * 所以结算steps一般都是在for loop queue size后进行结算。
+ *
  * 这是一道最最最最基础的最最最模板化的BFS
  * 千万要记住的就是out of bound的check一定要写在最前面！！！不然就会出现out of bound exception
  */
@@ -66,7 +72,7 @@ public class ZeroOneMatrix {
     int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     int steps = 0;
     while(!queue.isEmpty()) {
-      int size = queue.size();
+      int size = queue.size(); //取出当前层的长度，这样后来offer进来的就只能在下一层结算
       for(int i = 0; i < size; i++) {
         int[] curr = queue.poll();
         int x = curr[0];
@@ -79,10 +85,10 @@ public class ZeroOneMatrix {
           //下面这一串条件如果visited那个写在前面就会出现out of bound exception！！！
           if(newX < 0 || newX >= matrix.length || newY < 0 || newY >= matrix[0].length || visited[newX][newY]) continue;
           visited[newX][newY] = true;
-          queue.offer(new int[] {newX, newY});
+          queue.offer(new int[] {newX, newY}); //因为之前取得了当前层的size,所以新offer进去的只能下一层进行结算
         }
       }
-      steps++;
+      steps++; //当前层结算之后进行增加。
     }
     return matrix;
   }

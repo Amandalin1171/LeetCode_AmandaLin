@@ -32,7 +32,46 @@ package ArrayAndNumbers;
  * If the difference falls below 0, reset it to zero.
  *
  * ******快去看下一个题，打开了DP新世界的大门！！！*******
- * Maximum Subarray，一样的思想套路！！！但是已经是totally DP的思想咯！！！加油~~~
+ * 53. Maximum Subarray，一样的思想套路！！！但是已经是totally DP的思想咯！！！加油~~~
+ * 53. Maximum Subarray也是利用了Kadane's Algorithm 可达内（读音）
+ */
+
+/**
+ * 感谢网友的总结：
+ * from https://leetcode.com/arauf/
+ * @jaqenhgar said in Kadane's Algorithm - Since no one has mentioned about this so far :) (In case if interviewer twists the input):
+ *
+ * *maxCur = current maximum value
+ * *maxSoFar = maximum value found so far
+ *
+ * A more clear explanation on why sum of subarray works.:
+ *
+ * Suppose we have original array:
+ * [a0, a1, a2, a3, a4, a5, a6]
+ *
+ * what we are given here(or we calculate ourselves) is:
+ * [b0, b1, b2, b3, b4, b5, b6]
+ *
+ * where,
+ * b[i] = 0, when i == 0
+ * b[i] = a[i] - a[i - 1], when i != 0
+ *
+ * suppose if a2 and a6 are the points that give us the max difference (a2 < a6)
+ * then in our given array, we need to find the sum of sub array from b3 to b6.
+ *
+ * b3 = a3 - a2
+ * b4 = a4 - a3
+ * b5 = a5 - a4
+ * b6 = a6 - a5
+ *
+ * adding all these, all the middle terms will cancel out except two
+ * i.e.
+ *
+ * b3 + b4 + b5 + b6 = a6 - a2
+ *
+ * a6 - a2 is the required solution.
+ *
+ * so we need to find the largest sub array sum to get the most profit
  */
 public class BestTimeToBuyAndSellStock {
   public int maxProfit(int[] prices) {
