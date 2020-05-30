@@ -62,5 +62,25 @@ public class Notes {
  *
  * 7. Set 批量加东西：
  *  Set.addAll(Arrays.asList('a', 'e', 'i', 'o', 'u'));
+ *
+ * 8. Primitive Data Types
+ * Type	  Size(bits)	Minimum	   Maximum	             Example
+ * byte	     8	      -2^7	     2^7– 1	               byte b = 100;
+ * short	  16	      -2^15	     2^15– 1	             short s = 30_000;
+ * int	    32	      -2^31	     2^31– 1	             int i = 100_000_000;
+ * long	    64	      -2^63	     2^63– 1	             long l = 100_000_000_000_000;
+ * float	  32	      -2^(-149)	 (2-2^(-23))·2^127	   float f = 1.456f;
+ * double	  64	      -2^(-1074) (2-2^(-52))·2^1023	   double f = 1.456789012345678;
+ * char	    16	      0	         2^16– 1	             char c = ‘c';
+ * boolean	1	        –	         –	                   boolean b = true;
+ *
+ * 9. BST
+ * 右子树：大于等于！！！
+ * 左子树：小于！！！
+ * 二叉查找树（英語：Binary Search Tree），也称为二叉搜索树、有序二叉树（ordered binary tree）或排序二元樹（sorted binary tree），是指一棵空树或者具有下列性质的二叉树：
+ *
+ * 若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；
+ * 若任意节点的右子树不空，则右子树上所有节点的值均大于或等于它的根节点的值；
+ * 任意节点的左、右子树也分别为二叉查找树；
  */
 }

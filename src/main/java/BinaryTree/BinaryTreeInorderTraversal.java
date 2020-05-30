@@ -24,7 +24,7 @@ import java.util.Stack;
  * Follow up: Recursive solution is trivial, could you do it iteratively?
  */
 
-//方法2： Recursion
+//方法1： Recursion
 public class BinaryTreeInorderTraversal {
   public List<Integer> inorderTraversalRecursion(TreeNode root) {
     List<Integer> res = new ArrayList<>();

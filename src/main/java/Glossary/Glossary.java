@@ -12,5 +12,9 @@ public class Glossary {
  * lexicographically 字典顺序的
  * arbitrary 任意的
  * symmetric 对称的
+ * invert 颠倒 翻转
+ * trim 修剪
+ * Serialize 序列化
+ * Deserialize 反序列化
  */
 }

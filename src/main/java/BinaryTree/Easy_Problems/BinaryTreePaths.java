@@ -1,4 +1,4 @@
-package DFS;
+package BinaryTree.Easy_Problems;
 
 import BinaryTree.TreeNode;
 import java.util.ArrayList;
