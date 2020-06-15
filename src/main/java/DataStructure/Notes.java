@@ -82,5 +82,28 @@ public class Notes {
  * 若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；
  * 若任意节点的右子树不空，则右子树上所有节点的值均大于或等于它的根节点的值；
  * 任意节点的左、右子树也分别为二叉查找树；
+ *
+ * 10. 按添加顺序保存元素的，就只有LinkedHashMap
+ * https://beginnersbook.com/2013/12/linkedhashmap-in-java/
+ * 387. First Unique Character in a String
+ * LinkedHashMap保持了insert进去的key的顺序：
+ * 当然这道题有更好的解法，但是通过这道题记住这个data structure也蛮不错
+ *
+ * 11. ArrayList转int[] 只能for loop一个个填进去， 用toArray()必须是Integer[]
+ * 然后Integer[]又不能转换成int[]，只能用stream
+ *
+ * 12. String length limit: The maximum length a string can have is: 2^31-1.
+ * string can hold an int
+ * while int can not hold string due to length limit
+ *
+ *
+ * 12. Map.entryset() & Map.Entry 的用法：
+ * 举例，把hashmap中的pair根据value排序：
+*         PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(new Comparator<Map.Entry<Integer, Integer>>() {
+*             public int compare(Map.Entry<Integer, Integer> m1, Map.Entry<Integer, Integer> m2) {
+*                 return m1.getValue() - m2.getValue();
+*             }
+*         });
+*         for(Map.Entry<Integer, Integer> e : freqMap.entrySet()) pq.offer(e);//pq.addAll(freqMap.entrySet());
  */
 }

@@ -44,6 +44,22 @@ import java.util.Map;
  * because sum[i, j] = sum[0, j] - sum[0, i - 1], this is a very very important idea
  */
 public class BinarySubarraysWithSum {
+  //2020-6-3更新代码：
+  //一边找，一边放k v pair
+  public int numSubarraysWithSum_new(int[] A, int S) {
+    Map<Integer, Integer> preSum = new HashMap<>();
+    preSum.put(0, 1);
+    int curr = 0;
+    int count = 0;
+    for(int i = 0; i < A.length; i++) {
+      curr += A[i];
+      if(preSum.containsKey(curr - S)) count += preSum.get(curr - S);
+      if(preSum.containsKey(curr)) preSum.put(curr, preSum.get(curr) + 1);
+      else if(!preSum.containsKey(curr)) preSum.put(curr, 1);
+    }
+    return count;
+  }
+
   //方法1： preSum
   public int numSubarraysWithSum_preSum(int[] A, int S) {
     int sum = 0; //prefix sum

@@ -16,5 +16,6 @@ public class Glossary {
  * trim 修剪
  * Serialize 序列化
  * Deserialize 反序列化
+ * trivial 不重要的
  */
 }
